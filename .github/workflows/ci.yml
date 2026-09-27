@@ -12,7 +12,7 @@ jobs:
       DATABASE_URL_RO: postgresql://verbatim_ro:unused@localhost:5432/reviews
     steps:
       - uses: actions/checkout@v7
-      - uses: astral-sh/setup-uv@v10
+      - uses: astral-sh/setup-uv@v10.2.0
       - run: uv sync --locked
       - run: uv run ruff check .
       - run: uv run ruff format --check .
@@ -27,6 +27,8 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
+        with:
+          package_json_file: web/package.json
       - uses: actions/setup-node@v7
         with:
           node-version: 24
