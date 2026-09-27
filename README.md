@@ -66,19 +66,6 @@ Every model call logs its input tokens and what share of the context window they
 context grow during a run without opening a tracing tool. The CLI also appends a summary of each run to
 `logs/runs.jsonl`.
 
-## Things I learned along the way
-
-- Free tiers break multi-step agents before anything else does. Groq caps a request at 7k input tokens per
-  minute and the executor's prompt alone is about 5k, so a run dies after two tool calls. Gemini 3.8 Flash
-  gives you 20 requests a day, which isn't even one analysis. It runs on Gemini 3.5 Flash-Lite for now. How
-  much that costs in answer quality is exactly what the evals in the TODO are for.
-- Gemini rejects requests that end with a model turn, which Groq accepted without complaint. Only sending the
-  executor its own tool traffic fixed it.
-- A dev server that reloads on `.py` changes will restart itself mid-run if the sandbox writes its scripts
-  inside the project, so they go to the system temp directory.
-- Streaming UIs flicker when a message can change sections halfway through. Here each message is assigned a
-  place (plan, steps or answer) from its first words, and steps are keyed by tool call id.
-
 ## Running it
 
 You need Postgres 15 or newer, [uv](https://docs.astral.sh/uv/), Node 20+ with pnpm, and about 2 GB of disk
