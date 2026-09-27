@@ -1,13 +1,7 @@
 # Verbatim
 
-I built this to try out agent architectures on something less toy-like than a todo app: business questions
-over 3.2 million Amazon reviews. You ask "which fashion brands get the most sizing complaints?" and the agent
-plans the work, queries Postgres, reads reviews, runs Python when it needs a chart or a report, and writes an
-answer that cites the reviews it used. That last part is where the name comes from: every claim should trace
-back to something a customer wrote, verbatim.
-
-Nobody else needs to use it. It's where I test ideas, see which ones survive contact with a real dataset, and
-get better at building these things.
+An agent that answers business questions over 3.2 million Amazon reviews. It plans the analysis, queries
+Postgres, reads reviews, runs Python for charts and reports, and cites the reviews behind every claim.
 
 ![Home](docs/screenshots/home.png)
 
