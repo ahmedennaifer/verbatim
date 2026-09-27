@@ -1,0 +1,11 @@
+.env
+.git
+.venv
+.langgraph_api
+.claude
+data
+logs
+workspace
+sandbox/.venv
+sandbox/node_modules
+web
